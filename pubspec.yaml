@@ -101,4 +101,5 @@ flutter:
         - asset: assets/fonts/Agrandir-GrandLight.otf
           weight: 100
   assets:
-    - assets/images/welcome.png
+      - assets/images/
+      - assets/icons/

@@ -9,6 +9,7 @@ import 'package:contenter/data_structs/profile.dart';
 
 import 'package:contenter/widgets/base_page.dart';
 import 'widgets/marketplace.dart';
+// ignore: unused_import
 import 'widgets/long_widget.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Contenter',
       theme: ThemeData(
         colorScheme: style_colors.colorScheme,
@@ -32,9 +34,9 @@ class App extends StatelessWidget {
           headlineLarge: style_fonts.headlineLarge,
           headlineMedium: style_fonts.headlineMedium,
           headlineSmall: style_fonts.headlineSmall,
-          titleLarge: style_fonts.titleLarge,
-          titleMedium: style_fonts.titleMedium,
-          titleSmall: style_fonts.titleSmall,
+          titleLarge: style_fonts.titleH1,
+          titleMedium: style_fonts.titleH3,
+          titleSmall: style_fonts.titleH4,
           bodyLarge: style_fonts.bodyLarge,
           bodyMedium: style_fonts.bodyMedium,
           bodySmall: style_fonts.bodySmall,
@@ -42,11 +44,13 @@ class App extends StatelessWidget {
           labelMedium: style_fonts.labelMedium,
           labelSmall: style_fonts.labelSmall,
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(style: style_buttons.primary),
-        outlinedButtonTheme: OutlinedButtonThemeData(style: style_buttons.outlinedPrimary),
+        elevatedButtonTheme:
+            ElevatedButtonThemeData(style: style_buttons.primary),
+        outlinedButtonTheme:
+            OutlinedButtonThemeData(style: style_buttons.outlinedPrimary),
         textButtonTheme: TextButtonThemeData(style: style_buttons.text),
       ),
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }
@@ -57,29 +61,31 @@ class StylePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            const Text('test'),
-            const SizedBox(height: 16),
-            style_buttons.PrimaryButton(child: const Text('Primary'), onPressed: () {}),
-            const SizedBox(height: 16),
-            style_buttons.SecondaryButton(child: const Text('Secondary'), onPressed: () {}),
-            const SizedBox(height: 16),
-            style_buttons.RejectButton(child: const Text('Reject'), onPressed: () {}),
-          ],
+        body: Center(
+          child: Column(
+            children: [
+              const Text('test'),
+              const SizedBox(height: 16),
+              style_buttons.PrimaryButton(
+                  child: const Text('Primary'), onPressed: () {}),
+              const SizedBox(height: 16),
+              style_buttons.SecondaryButton(
+                  child: const Text('Secondary'), onPressed: () {}),
+              const SizedBox(height: 16),
+              style_buttons.RejectButton(
+                  child: const Text('Reject'), onPressed: () {}),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return const NavigationPage();
-          }));
-        },
-        tooltip: 'Navigation',
-        child: const Icon(Icons.add),
-      )
-    );
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const NavigationPage();
+            }));
+          },
+          tooltip: 'Navigation',
+          child: const Icon(Icons.add),
+        ));
   }
 }
 
@@ -94,7 +100,7 @@ class NavigationPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              Text('test123'),
+              const Text('test123'),
               style_buttons.PrimaryButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -131,7 +137,7 @@ class NavigationPage extends StatelessWidget {
                 child: const Text('Main'),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return MainPage();
+                    return const MainPage();
                   }));
                 },
               ),
@@ -160,14 +166,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -180,16 +178,23 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 64),
               Text(
                 'Marketplace for content creation',
-                style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 18)),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.merge(const TextStyle(fontSize: 18)),
               ),
               const SizedBox(height: 128),
               Text(
                 'Login to',
-                style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 22)),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.merge(const TextStyle(fontSize: 22)),
               ),
               Text(
                 'Contenter.Club',
-                style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+                style: Theme.of(context).textTheme.bodyMedium?.merge(
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
               ),
               const SizedBox(height: 48),
               TextFormField(
@@ -200,7 +205,7 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(),
                 ),
                 onChanged: (value) {
-                  print(value);
+                  debugPrint(value);
                 },
               ),
               const SizedBox(height: 20),
@@ -213,19 +218,21 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 obscureText: true,
                 onChanged: (value) {
-                  print(value);
+                  debugPrint(value);
                 },
               ),
               const SizedBox(height: 20),
-              TextButton(child: const Text('Forgot password'), onPressed: () {
-                print('button pressed');
-              }),
+              TextButton(
+                  child: const Text('Forgot password'),
+                  onPressed: () {
+                    debugPrint('button pressed');
+                  }),
               const SizedBox(height: 20),
               Row(children: [
                 Expanded(
                   child: TextButton(
                     style: style_buttons.primary,
-                    onPressed: () { },
+                    onPressed: () {},
                     child: const Text('Login'),
                   ),
                 ),
@@ -264,16 +271,24 @@ class WelcomePage extends StatelessWidget {
                 const SizedBox(height: 64),
                 Text(
                   'Welcome to',
-                  style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 24)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.merge(const TextStyle(fontSize: 24)),
                 ),
                 Text(
                   'Contenter Club',
-                  style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  style: Theme.of(context).textTheme.bodyMedium?.merge(
+                      const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold)),
                 ),
                 const SizedBox(height: 18),
                 Text(
                   'Get paid for what you love to create',
-                  style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 18)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.merge(const TextStyle(fontSize: 18)),
                 ),
                 const SizedBox(height: 18),
                 Image.asset('assets/images/welcome.png'),
@@ -282,7 +297,7 @@ class WelcomePage extends StatelessWidget {
                   Expanded(
                     child: TextButton(
                       style: style_buttons.primary,
-                      onPressed: () { },
+                      onPressed: () {},
                       child: const Text('Continue'),
                     ),
                   ),
@@ -299,8 +314,7 @@ class WelcomePage extends StatelessWidget {
           },
           tooltip: 'Navigation',
           child: const Icon(Icons.add),
-        )
-    );
+        ));
   }
 }
 
@@ -319,40 +333,54 @@ class FirstProfileSettingsPage extends StatelessWidget {
                 const SizedBox(height: 64),
                 Text(
                   'Welcome to',
-                  style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 24)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.merge(const TextStyle(fontSize: 24)),
                 ),
                 Text(
                   'Contenter Club',
-                  style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  style: Theme.of(context).textTheme.bodyMedium?.merge(
+                      const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold)),
                 ),
                 const SizedBox(height: 90),
                 Text(
                   'Before we start - please introduce',
-                  style: Theme.of(context).textTheme.bodyMedium?.merge(const TextStyle(fontSize: 18)),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.merge(const TextStyle(fontSize: 18)),
                 ),
                 const SizedBox(height: 90),
                 Row(children: [
-                  Image.asset('assets/images/welcome.png', height: 72, width: 72,),
+                  Image.asset(
+                    'assets/images/welcome.png',
+                    height: 72,
+                    width: 72,
+                  ),
                   Expanded(
                     child: TextButton(
                       style: style_buttons.secondary,
-                      onPressed: () { },
+                      onPressed: () {},
                       child: const Text('Upload photo'),
                     ),
                   ),
                   TextButton(
                     style: style_buttons.secondary,
-                    onPressed: () { },
-                    child: const Icon(Icons.delete, color: style_colors.negative,),
+                    onPressed: () {},
+                    child: const Icon(
+                      Icons.delete,
+                      color: style_colors.negative,
+                    ),
                   ),
                 ]),
-
                 const SizedBox(height: 18),
                 Row(children: [
                   Expanded(
                     child: TextButton(
                       style: style_buttons.primary,
-                      onPressed: () { },
+                      onPressed: () {},
                       child: const Text('Continue'),
                     ),
                   ),
@@ -369,8 +397,7 @@ class FirstProfileSettingsPage extends StatelessWidget {
           },
           tooltip: 'Navigation',
           child: const Icon(Icons.add),
-        )
-    );
+        ));
   }
 }
 
@@ -407,19 +434,25 @@ class _MainPageState extends State<MainPage> {
                     onTap: (index) {
                       _changeTab(index);
                     },
-                    labelStyle: TextStyle(fontWeight: FontWeight.w900),
-                    unselectedLabelStyle: TextStyle(),
-                    indicator: BoxDecoration(),
-                    tabs: [
-                      Tab(child: Text('Marketplace', style: TextStyle(color: style_colors.black, fontSize: 16))),
-                      Tab(child: Text('My proposals', style: TextStyle(color: style_colors.black, fontSize: 16))),
+                    labelStyle: const TextStyle(fontWeight: FontWeight.w900),
+                    unselectedLabelStyle: const TextStyle(),
+                    indicator: const BoxDecoration(),
+                    tabs: const [
+                      Tab(
+                          child: Text('Marketplace',
+                              style: TextStyle(
+                                  color: style_colors.black, fontSize: 16))),
+                      Tab(
+                          child: Text('My proposals',
+                              style: TextStyle(
+                                  color: style_colors.black, fontSize: 16))),
                     ],
                   ),
                   Builder(builder: (_) {
                     if (_selectedTab == 0) {
-                      return MarketplaceWidget();
+                      return const MarketplaceWidget();
                     } else if (_selectedTab == 1) {
-                      return MyProposalsWidget();
+                      return const MyProposalsWidget();
                     } else {
                       throw Exception('Wrong tab index');
                     }
@@ -437,8 +470,6 @@ class _MainPageState extends State<MainPage> {
           },
           tooltip: 'Navigation',
           child: const Icon(Icons.add),
-        )
-    );
+        ));
   }
 }
-

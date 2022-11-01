@@ -16,7 +16,12 @@ class PrimaryButton extends StatelessWidget {
   final Widget child;
   final ButtonStyle? style;
 
-  PrimaryButton({super.key, required this.onPressed, ButtonStyle? style, required this.child}): style = style?.merge(_defStyle) ?? _defStyle;
+  PrimaryButton(
+      {super.key,
+      required this.onPressed,
+      ButtonStyle? style,
+      required this.child})
+      : style = style?.merge(_defStyle) ?? _defStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +47,74 @@ class SecondaryButton extends StatelessWidget {
   final Widget child;
   final ButtonStyle style;
 
-  SecondaryButton({super.key, required this.onPressed, ButtonStyle? style, required this.child}): style = style?.merge(_defStyle) ?? _defStyle;
+  SecondaryButton(
+      {super.key,
+      required this.onPressed,
+      ButtonStyle? style,
+      required this.child})
+      : style = style?.merge(_defStyle) ?? _defStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: style,
+      onPressed: onPressed,
+      child: child,
+    );
+  }
+}
+
+class PrimarySmallButton extends StatelessWidget {
+  static final ButtonStyle _defStyle = ElevatedButton.styleFrom(
+    foregroundColor: colors.gray04,
+    backgroundColor: colors.blue,
+    textStyle: fonts.secondaryButtonText,
+    minimumSize: const Size(140, 52),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+  );
+  final void Function() onPressed;
+  final Widget child;
+  final ButtonStyle style;
+
+  PrimarySmallButton(
+      {super.key,
+      required this.onPressed,
+      ButtonStyle? style,
+      required this.child})
+      : style = style?.merge(_defStyle) ?? _defStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: style,
+      onPressed: onPressed,
+      child: child,
+    );
+  }
+}
+
+class SecondarySmallButton extends StatelessWidget {
+  static final ButtonStyle _defStyle = ElevatedButton.styleFrom(
+    foregroundColor: colors.blue,
+    backgroundColor: colors.gray04,
+    textStyle: fonts.secondaryButtonText,
+    minimumSize: const Size(140, 52),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+    ),
+  );
+  final void Function() onPressed;
+  final Widget child;
+  final ButtonStyle style;
+
+  SecondarySmallButton(
+      {super.key,
+      required this.onPressed,
+      ButtonStyle? style,
+      required this.child})
+      : style = style?.merge(_defStyle) ?? _defStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +134,12 @@ class RejectButton extends StatelessWidget {
   final Widget child;
   final ButtonStyle? style;
 
-  RejectButton({super.key, required this.onPressed, ButtonStyle? style, required this.child}): style = style?.merge(_defStyle) ?? _defStyle;
+  RejectButton(
+      {super.key,
+      required this.onPressed,
+      ButtonStyle? style,
+      required this.child})
+      : style = style?.merge(_defStyle) ?? _defStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +166,7 @@ final secondary = ElevatedButton.styleFrom(
   textStyle: fonts.labelMedium,
   minimumSize: const Size(52, 52),
   shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
+    borderRadius: BorderRadius.circular(8),
   ),
 );
 
@@ -105,14 +182,13 @@ final onLight = ElevatedButton.styleFrom(
   ),
 );
 
-final reject = ElevatedButton.styleFrom(
-    foregroundColor: colors.negative
-).merge(secondary);
+final reject =
+    ElevatedButton.styleFrom(foregroundColor: colors.negative).merge(secondary);
 
 final outlinedPrimary = OutlinedButton.styleFrom(
   foregroundColor: colors.light,
   minimumSize: const Size(52, 52),
-  side: BorderSide(color: colors.blue, width: 2),
+  side: const BorderSide(color: colors.blue, width: 2),
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(8),
   ),

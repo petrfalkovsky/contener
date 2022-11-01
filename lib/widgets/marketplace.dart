@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../style/colors.dart' as colors;
+// ignore: unused_import
 import '../style/buttons.dart' as button_styles;
 import '../style/fonts.dart' as font_styles;
 
@@ -15,6 +16,7 @@ enum _ViewType {
 class _MarketplaceListViewItemWidget extends StatelessWidget {
   final Map<String, dynamic> business;
 
+  // ignore: unused_element
   const _MarketplaceListViewItemWidget({super.key, required this.business});
 
   @override
@@ -59,7 +61,7 @@ class _MarketplaceListViewItemWidget extends StatelessWidget {
           const SizedBox(width: 20),
           Container(
             height: 40,
-            constraints: BoxConstraints(minWidth: 40),
+            constraints: const BoxConstraints(minWidth: 40),
             decoration: BoxDecoration(
               color: colors.light,
               borderRadius: BorderRadius.circular(8),
@@ -135,7 +137,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                 if (viewType == _ViewType.map) {
                   return ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
@@ -148,7 +150,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                 } else {
                   return OutlinedButton(
                       style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(8),
                             bottomLeft: Radius.circular(8),
@@ -168,7 +170,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                 if (viewType == _ViewType.list) {
                   return ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(8),
                             bottomRight: Radius.circular(8),
@@ -181,7 +183,7 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                 } else {
                   return OutlinedButton(
                       style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(8),
                             bottomRight: Radius.circular(8),
@@ -197,13 +199,13 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
               }),
             ),
             const SizedBox(width: 10),
-            ElevatedButton(onPressed: () {}, child: Icon(Icons.settings))
+            ElevatedButton(onPressed: () {}, child: const Icon(Icons.settings))
           ],
         ),
         const SizedBox(height: 30),
         Builder(builder: (_) {
           if (viewType == _ViewType.map) {
-            return LongWidget();
+            return const LongWidget();
           } else if (viewType == _ViewType.list) {
             return _MarketplaceListViewWidget();
           } else {

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +14,8 @@ class MyProposalsWidget extends StatefulWidget {
   State<StatefulWidget> createState() => _MyProposalsWidgetState();
 }
 
-class _MyProposalsWidgetState extends State<MyProposalsWidget>{
+class _MyProposalsWidgetState extends State<MyProposalsWidget> {
+  // ignore: unused_field
   int _selectedTab = 0;
 
   void _changeTab(int index) {
@@ -28,17 +31,20 @@ class _MyProposalsWidgetState extends State<MyProposalsWidget>{
       child: Column(
         children: [
           TabBar(
-            indicatorColor: colors.blue,
-            labelColor: colors.blue,
-            onTap: (index) {
-              _changeTab(index);
-            },
-            tabs: [
-              Tab(child: Text('Listed', style: TextStyle(color: colors.blue))),
-              Tab(child: Text('Paid', style: TextStyle(color: colors.blue))),
-              Tab(child: Text('Rejected', style: TextStyle(color: colors.blue))),
-            ]
-          ),
+              indicatorColor: colors.blue,
+              labelColor: colors.blue,
+              onTap: (index) {
+                _changeTab(index);
+              },
+              tabs: const [
+                Tab(
+                    child:
+                        Text('Listed', style: TextStyle(color: colors.blue))),
+                Tab(child: Text('Paid', style: TextStyle(color: colors.blue))),
+                Tab(
+                    child:
+                        Text('Rejected', style: TextStyle(color: colors.blue))),
+              ]),
         ],
       ),
     );
