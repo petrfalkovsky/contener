@@ -22,27 +22,29 @@ class BasePageWidget extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverList(
-            delegate: SliverChildListDelegate([
-              const HeaderWidget(),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10),
-                    ProfileBriefWidget(profile: profile),
-                    const SizedBox(height: 15),
-                    child,
-                  ],
+            delegate: SliverChildListDelegate(
+              [
+                const HeaderWidget(),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      ProfileBriefWidget(profile: profile),
+                      const SizedBox(height: 15),
+                      child,
+                    ],
+                  ),
                 ),
-              ),
-            ],),
+              ],
+            ),
           ),
           const SliverFillRemaining(
             hasScrollBody: false,
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: FooterWidget()
+              child: FooterWidget(),
             ),
           )
         ],

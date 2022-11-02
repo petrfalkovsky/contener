@@ -1,4 +1,4 @@
-#Sat Oct 29 17:32:12 MSK 2022
-base.0=/home/petya/FlutterProjects/Тестовые задания/contenter-app-frontend/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+#Wed Nov 02 18:02:56 MSK 2022
+base.0=/home/petya/FlutterProjects/lets-work-body/contener/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

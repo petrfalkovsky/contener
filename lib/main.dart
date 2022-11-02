@@ -1,5 +1,6 @@
 import 'package:contenter/widgets/my_proposals.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'style/colors.dart' as style_colors;
 import 'style/buttons.dart' as style_buttons;
@@ -13,6 +14,10 @@ import 'widgets/marketplace.dart';
 import 'widgets/long_widget.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [
+    SystemUiOverlay.bottom,
+  ]);
   runApp(const App());
 }
 
@@ -32,11 +37,11 @@ class App extends StatelessWidget {
         textTheme: TextTheme(
           //display
           headlineLarge: style_fonts.headlineLarge,
-          headlineMedium: style_fonts.headlineMedium,
+          headlineMedium: style_fonts.headlineMedium1,
           headlineSmall: style_fonts.headlineSmall,
           titleLarge: style_fonts.titleH1,
-          titleMedium: style_fonts.titleH3,
-          titleSmall: style_fonts.titleH4,
+          titleMedium: style_fonts.titlefutureH8H4,
+          titleSmall: style_fonts.titleH3,
           bodyLarge: style_fonts.bodyLarge,
           bodyMedium: style_fonts.bodyMedium,
           bodySmall: style_fonts.bodySmall,

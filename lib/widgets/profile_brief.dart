@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../style/colors.dart' as colors;
 import '../style/buttons.dart' as buttons_style;
-import 'edit_profile_modal.dart';
+import '../ui/screens/edit_profile_modal/edit_profile_modal.dart';
 
 class ProfileBriefWidget extends StatelessWidget {
   final ProfileData profile;
@@ -74,8 +74,10 @@ class ProfileBriefWidget extends StatelessWidget {
                           color: colors.blue,
                         )),
                   ),
-                  Text('available',
-                      style: Theme.of(context).textTheme.titleMedium),
+                  Text(
+                    'available',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ],
               ),
               TextButton(

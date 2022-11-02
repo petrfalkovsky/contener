@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../style/buttons.dart';
-import '../style/colors.dart' as colors;
-import '../style/fonts.dart' as fonts_style;
+import '../../../style/buttons.dart';
+import '../../../style/colors.dart' as colors;
+import '../../../style/fonts.dart' as fonts_style;
 
 Future<dynamic> buildShowModalBottomSheet(BuildContext context) {
   return showModalBottomSheet(

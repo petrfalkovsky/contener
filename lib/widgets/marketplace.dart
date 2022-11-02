@@ -6,6 +6,7 @@ import '../style/colors.dart' as colors;
 import '../style/buttons.dart' as button_styles;
 import '../style/fonts.dart' as font_styles;
 
+import '../ui/screens/edit_profile_modal/offer_screen/offer_dart.dart';
 import 'long_widget.dart';
 
 enum _ViewType {
@@ -21,59 +22,72 @@ class _MarketplaceListViewItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: colors.gray04,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: const BoxDecoration(
-              color: colors.black,
-              shape: BoxShape.circle,
-            ),
+    return SizedBox(
+      child: Material(
+        child: InkWell(
+          customBorder: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return const OfferScreen();
+            }));
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
               children: [
-                Text(
-                  '${business['name']}',
-                  style: GoogleFonts.spaceGrotesk(
-                      textStyle: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w700)),
-                  overflow: TextOverflow.ellipsis,
-                  softWrap: false,
-                  maxLines: 2,
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: const BoxDecoration(
+                    color: colors.black,
+                    shape: BoxShape.circle,
+                  ),
                 ),
-                Text('${business['type']}',
-                    style: GoogleFonts.spaceGrotesk(
-                        textStyle: const TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w600))),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${business['name']}',
+                        style: GoogleFonts.spaceGrotesk(
+                            textStyle: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w700)),
+                        overflow: TextOverflow.ellipsis,
+                        softWrap: false,
+                        maxLines: 2,
+                      ),
+                      Text('${business['type']}',
+                          style: GoogleFonts.spaceGrotesk(
+                              textStyle: const TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.w600))),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Container(
+                  height: 40,
+                  constraints: const BoxConstraints(minWidth: 40),
+                  decoration: BoxDecoration(
+                    color: colors.light,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: Center(
+                      child: Text('${business['count']}',
+                          style: GoogleFonts.openSans(
+                              textStyle: const TextStyle(
+                                  color: colors.blue, fontSize: 14)))),
+                ),
               ],
             ),
           ),
-          const SizedBox(width: 20),
-          Container(
-            height: 40,
-            constraints: const BoxConstraints(minWidth: 40),
-            decoration: BoxDecoration(
-              color: colors.light,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            padding: const EdgeInsets.all(10),
-            child: Center(
-                child: Text('${business['count']}',
-                    style: GoogleFonts.openSans(
-                        textStyle: const TextStyle(
-                            color: colors.blue, fontSize: 14)))),
-          ),
-        ],
+        ),
       ),
     );
   }
